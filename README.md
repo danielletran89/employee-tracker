@@ -37,3 +37,9 @@ Open your terminal and change into the corresponding directory. Run "node index.
 ## Usage
 
 This application will allow users to view, add, and edit employees, roles, departments, and managers.
+
+![viewEmployees](https://user-images.githubusercontent.com/82686855/132611683-031ef81d-6941-4634-9226-1837cccdc33d.JPG)
+
+![viewRole](https://user-images.githubusercontent.com/82686855/132611699-1bf777c8-51a4-49e5-be25-f1edd452c89d.JPG)
+
+![viewDepartment](https://user-images.githubusercontent.com/82686855/132611707-a3e2c13b-7cad-4378-b8bd-27c11dedae78.JPG)
