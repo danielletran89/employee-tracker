@@ -22,7 +22,7 @@ This application allows the user to:
 
 ## Installation
 
-Once repository is cloned, simply input
+Once repository is cloned, input
 
 ```
 npm i
@@ -36,4 +36,4 @@ Open your terminal and change into the corresponding directory. Run "node index.
 
 ## Usage
 
-After connecting to the employee database using NodeJS, the user can simply scroll through the command prompts using the arrow keys to view all employees or add/update employee roles and more. 
+This application will allow users to view, add, and edit employees, roles, departments, and managers.

@@ -1,5 +1,5 @@
 const inquirer = require('inquirer'); 
-const mysql = require('mysql'); 
+const mysql = require('mysql2/promise'); 
 const consoleTable = require('console.table');
 
 async function app(){
@@ -7,12 +7,11 @@ async function app(){
 const db =  await mysql.createConnection(
     {
         host: 'localhost',
-        port: 3030,
         user: 'root',
         password: '1bowlingFreak!',
         database: 'employees_db'
     },
-    console.log(`Connected to the Employee Database!`)
+    console.log(`Connected to the Employee Database.`)
 ); 
 
 const options = { 
@@ -63,28 +62,28 @@ const options = {
     async addEmployee(){ 
         let response = await inquirer.prompt([
         {
-            name: "first_name",
             type: "input",
             message: "What is the employee's first name?",
+            name: "employeeFirstName"
         },
         {
-            name: "last_name",
             type: "input",
             message: "What is the employee's last name?",
+            name: "employeeLastName"
         },
         {
-            name: "role_id",
             type: "input",
             message: "What is the employee's role?", 
+            name: "employeeRole"
         }, 
         {
-            name: "manager_id",
             type: "input",
-            message: "What is the employee's manager's ID?",
+            message: "What is the employee's manager's name?",
+            name: "employeeManager"
         },
         ]);
 
-        await db.query(`INSERT INTO employee SET first_name = ?, last_name = ?, role_id = ?, manager_id = ?`, [response.first_name, response.last_name, response.role_id, response.manager_id]);
+        await db.query(`INSERT INTO employee SET first_name = ?, last_name = ?, role_id = ?, manager_id = ?`, [response.employeeFirstName, response.employeeLastName, response.employeeRole, response.employeeManager]);
       const employees = await db.query("SELECT * FROM employee");
         console.table(employees[0])
         },
@@ -93,12 +92,12 @@ const options = {
         {
             type: "input",
             message: "What is the first name of the employee you would like to update?",
-            name: "first_name"
+            name: "employeeFirstName"
         },
         {
             type: "input",
             message: "What is the last name of the employee you would like to update?",
-            name: "first_name"
+            name: "employeeLastName"
         },
         {
             type: "input",
@@ -107,7 +106,7 @@ const options = {
         },
     ]);
 
-        await db.query(`UPDATE employee SET role_id = ? WHERE first_name = ? AND last_name = ?`, [response.employeeUpdateRole, response.first_name, response.last_name]);
+        await db.query(`UPDATE employee SET role_id = ? WHERE first_name = ? AND last_name = ?`, [response.employeeUpdateRole, response.employeeFirstName, response.employeeLastName]);
         const updateEmployee = await db.query("SELECT * FROM employee") 
         console.table(updateEmployee[0])
     }, 
