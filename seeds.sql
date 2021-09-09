@@ -19,4 +19,4 @@ VALUES ('Casey', 'Novak', 1, 6408),
        ('John', 'Munch', 3, 3286),
        ('Elliot', 'Stabler', 4, 6403),
        ('Don', 'Cragen', 5, 0744),
-       ('FIn', 'Tutuola', 6, 7303);
+       ('Fin', 'Tutuola', 6, 7303);
